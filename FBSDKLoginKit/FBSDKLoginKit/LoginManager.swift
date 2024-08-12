@@ -684,15 +684,16 @@ public final class LoginManager: NSObject {
           )
           return loginHandler(false, error)
         }
-        var hostPrefix = "m."
-        switch configuration.tracking {
-        case .limited:
-          hostPrefix = "limited."
-        case .enabled:
-          if _DomainHandler.sharedInstance().isDomainHandlingEnabled(), !Settings.shared.isAdvertiserTrackingEnabled {
-            hostPrefix = "limited."
-          }
-        }
+          let hostPrefix = "m."
+//        var hostPrefix = "m."
+//        switch configuration.tracking {
+//        case .limited:
+//          hostPrefix = "limited."
+//        case .enabled:
+//          if _DomainHandler.sharedInstance().isDomainHandlingEnabled(), !Settings.shared.isAdvertiserTrackingEnabled {
+//            hostPrefix = "limited."
+//          }
+//        }
         authenticationURL = try dependencies.internalUtility.facebookURL(
           hostPrefix: hostPrefix,
           path: Self.oAuthPath,
