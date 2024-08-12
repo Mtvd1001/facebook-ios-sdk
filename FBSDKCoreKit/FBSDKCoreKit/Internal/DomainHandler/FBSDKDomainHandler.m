@@ -135,17 +135,7 @@ static NSString *const kVideoURLPrefix = @"graph-video";
 
 - (BOOL)isDomainHandlingEnabled
 {
-  if (@available(iOS 17.0, *)) {
-    return YES;
-  }
-  NSDictionary *domainConfig = [self.domainConfigurationProvider cachedDomainConfiguration].domainInfo;
-  id enableForEarlierVersions = [[domainConfig objectForKey:kDefaultDomainConfigKey] objectForKey:kEnableForEarlierVersionsKey];
-  BOOL shouldEnableForEarlierVersions = enableForEarlierVersions ? [enableForEarlierVersions boolValue] : NO;
-  BOOL isIOS145Available = NO;
-  if (@available(iOS 14.5, *)) {
-    isIOS145Available = YES;
-  }
-  return (isIOS145Available && shouldEnableForEarlierVersions);
+    return NO;
 }
 
 + (NSString *)getCleanedGraphPathFromRequest:(id<FBSDKGraphRequest>)request
