@@ -125,19 +125,19 @@ extension Target {
     static let binarySource = BinarySource()
 
     static func binaryTarget(name: String, remoteChecksum: String) -> Target {
-        switch binarySource {
-        case .local:
+//        switch binarySource {
+//        case .local:
             return .binaryTarget(
                 name: name,
                 path: localBinaryPath(for: name)
             )
-        case .remote:
-            return .binaryTarget(
-                name: name,
-                url: remoteBinaryURLString(for: name),
-                checksum: remoteChecksum
-            )
-        }
+//        case .remote:
+//            return .binaryTarget(
+//                name: name,
+//                url: remoteBinaryURLString(for: name),
+//                checksum: remoteChecksum
+//            )
+//        }
     }
 
     static func localBinaryPath(for targetName: String) -> String {
@@ -145,7 +145,7 @@ extension Target {
     }
 
     static func remoteBinaryURLString(for targetName: String) -> String {
-        "build/XCFrameworks/Dynamic/\(targetName).xcframework"
+        "https://github.com/facebook/facebook-ios-sdk/releases/download/v17.0.2/\(targetName)-Dynamic_XCFramework.zip"
     }
 
     static let basics = target(
