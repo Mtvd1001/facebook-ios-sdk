@@ -242,7 +242,11 @@ enum BinarySource {
     case local, remote
 
     init() {
-        self = .local
+        if getenv("USE_LOCAL_FB_BINARIES") != nil {
+            self = .local
+        } else {
+            self = .remote
+        }
     }
 }
 
