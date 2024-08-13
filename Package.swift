@@ -98,6 +98,16 @@ let package = Package(
 
         // The main Facebook Gaming Services module
         .gaming,
+        .target(
+            name: "Facebook",
+            dependencies: [],
+            swiftSettings: [
+                .define("USE_LOCAL_FB_BINARIES",
+                        .when(configuration: .debug)),
+                .define("USE_LOCAL_FB_BINARIES", 
+                    .when(configuration: .release))
+            ]
+        )
     ],
     cxxLanguageStandard: .cxx11
 )
