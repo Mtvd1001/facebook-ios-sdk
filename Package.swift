@@ -145,7 +145,7 @@ extension Target {
     }
 
     static func remoteBinaryURLString(for targetName: String) -> String {
-        "https://github.com/facebook/facebook-ios-sdk/releases/download/v17.0.2/\(targetName)-Dynamic_XCFramework.zip"
+        "build/XCFrameworks/Dynamic/\(targetName).xcframework"
     }
 
     static let basics = target(
